@@ -7,6 +7,7 @@ var timer;
 var clock = document.querySelector("#countdown");
 var score = 0;
 var savedScores = JSON.parse(localStorage.getItem("savedScores"))||[];
+var initials = ""
 
 var questions = ["How many infinity stones are there?", "What is the alien race Loki sends to invade Earth in The Avengers?", "What mutant power does X-Men leader Cyclops have?", "Who is stronger: The Scarlet Witch or The Dark Phoenix?"]
 
@@ -49,40 +50,42 @@ startBtn.addEventListener("click", function qOne() {
     choiceOne.innerText = answers[0]
     choiceOne.addEventListener("click", function() {
         document.getElementById("btnOne").style.backgroundColor = "red";
-    } )
+    })
 
     var choiceTwo = document.getElementById("btnTwo");
     choiceTwo.innerText = answers[1]
+    
     choiceTwo.addEventListener("click", function() {
         document.getElementById("btnTwo").style.backgroundColor = "green";
         score++
-    } )
+    })
 
     var choiceThree = document.getElementById("btnThree");
     choiceThree.innerText = answers[2]
+    
     choiceOne.addEventListener("click", function() {
         document.getElementById("btnThree").style.backgroundColor = "red";
-    } )
+    })
 
     var choiceFour = document.getElementById("btnFour");
     choiceFour.innerText = answers[3]
+    
     choiceOne.addEventListener("click", function() {
         document.getElementById("btnFour").style.backgroundColor = "red";
-    } )
+    })
 
     qTwo()
 
-    
     timeLeft=30;
     timer = setInterval(function qOne(){
         timeLeft--;
         clock.textContent=timeLeft
 
         if(!timeLeft){
-            console.log("Time Over! You Lost :(")
-            clearInterval(timer);
+            document.querySelector("h2").innerText = "Time's Up!"
+            clearInterval(endBtn);
+            reset();
         }
-
 
     },1000)
 
@@ -98,18 +101,21 @@ function qTwo() {
 
     var choiceOne = document.getElementById("btnOne");
     choiceOne.innerText = answers[4]
+   
     choiceOne.addEventListener("click", function() {
         document.getElementById("btnOne").style.backgroundColor = "red";
     } )
 
     var choiceTwo = document.getElementById("btnTwo");
     choiceTwo.innerText = answers[5]
+    
     choiceOne.addEventListener("click", function() {
         document.getElementById("btnTwo").style.backgroundColor = "red";
     } )
 
     var choiceThree = document.getElementById("btnThree");
     choiceThree.innerText = answers[6]
+    
     choiceThree.addEventListener("click", function() {
         document.getElementById("btnThree").style.backgroundColor = "green";
         score++
@@ -117,13 +123,13 @@ function qTwo() {
 
     var choiceFour = document.getElementById("btnFour");
     choiceFour.innerText = answers[7]
-    choiceOne.addEventListener("click", function() {
-        document.getElementById("btnTwo").style.backgroundColor = "red";
+    
+    choiceFour.addEventListener("click", function() {
+        document.getElementById("btnFour").style.backgroundColor = "red";
     } )
 
     qThree()
 
-    
 })}
 
 function qThree() {
@@ -136,18 +142,34 @@ function qThree() {
 
     var choiceOne = document.getElementById("btnOne");
     choiceOne.innerText = answers[8]
+    
+    choiceOne.addEventListener("click", function() {
+        document.getElementById("btnOne").style.backgroundColor = "green";
+    } )
 
     var choiceTwo = document.getElementById("btnTwo");
     choiceTwo.innerText = answers[9]
+    
+    choiceTwo.addEventListener("click", function() {
+        document.getElementById("btnTwo").style.backgroundColor = "red";
+    } )
 
     var choiceThree = document.getElementById("btnThree");
     choiceThree.innerText = answers[10]
+    
+    choiceThree.addEventListener("click", function() {
+        document.getElementById("btnThree").style.backgroundColor = "red";
+    } )
+
 
     var choiceFour = document.getElementById("btnFour");
     choiceFour.innerText = answers[11]
+    
+    choiceFour.addEventListener("click", function() {
+        document.getElementById("btnFour").style.backgroundColor = "red";
+    } )
 
     qFour()
-
 
 })}
 
@@ -161,15 +183,31 @@ function qFour() {
 
     var choiceOne = document.getElementById("btnOne");
     choiceOne.innerText = answers[12]
+    
+    choiceOne.addEventListener("click", function() {
+        document.getElementById("btnOne").style.backgroundColor = "red";
+    } )
 
     var choiceTwo = document.getElementById("btnTwo");
     choiceTwo.innerText = answers[13]
+    
+    choiceTwo.addEventListener("click", function() {
+        document.getElementById("btnTwo").style.backgroundColor = "red";
+    } )
 
     var choiceThree = document.getElementById("btnThree");
     choiceThree.innerText = answers[14]
+    
+    choiceThree.addEventListener("click", function() {
+        document.getElementById("btnThree").style.backgroundColor = "red";
+    } )
 
     var choiceFour = document.getElementById("btnFour");
     choiceFour.innerText = answers[15]
+    
+    choiceFour.addEventListener("click", function() {
+        document.getElementById("btnFour").style.backgroundColor = "green";
+    } )
 
     var nextBtn = document.getElementById("next").style.display = "none";
 
@@ -177,28 +215,28 @@ function qFour() {
 
     })}
 
-
     function endGame() {
 
     endBtn.addEventListener("click", function endGame() {
      reset()   
 
-    var questionFour = document.querySelector("h2").innerText = "Thanks for Playing!"
+    questionFour = document.querySelector("h2").innerText = "Thanks for Playing!"
 
-    var choiceOne = document.getElementById("btnOne").style.display = "none";
+    choiceOne = document.getElementById("btnOne").style.display = "none";
 
-    var choiceTwo = document.getElementById("btnTwo").style.display = "none";
+    choiceTwo = document.getElementById("btnTwo").style.display = "none";
 
-    var choiceThree = document.getElementById("btnThree").style.display = "none";
+    choiceThree = document.getElementById("btnThree").style.display = "none";
 
-    var choiceFour = document.getElementById("btnFour").style.display = "none";
+    choiceFour = document.getElementById("btnFour").style.display = "none";
 
-    var endBtn = document.getElementById("end").style.display = "none";
+    endBtn = document.getElementById("end").style.display = "none";
+
+    initials = prompt("Please enter your initials");
+    document.getElementById("initial").innerText = initials;
 
     document.getElementById("scoreboard").innerText = savedScores;
     savedScores.push(score)
-    localStorage.setItem("savedScores",JSON.stringify(savedScores));
-
-})}
-
-
+    localStorage.setItem("savedScores",JSON.stringify(savedScores));(initials);
+    
+    })}

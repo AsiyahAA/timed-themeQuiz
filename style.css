@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0px;
 }
+
 :root {
     --primary: #961d49;
     --secondary: #abb4ea;
@@ -75,7 +76,7 @@ li {
 #next,
 #end {
    color: rgb(7, 3, 39);
-   background-color: var(--primary)
+   background-color: var(--tertiary);
    font-weight: bolder;
 }
 
@@ -99,6 +100,16 @@ h3 {
 }
 
 #countdown {
+    width: 10%;
+    padding: 15px;
+    border: 5px var(--tertiary);
+    background-color: var(--tertiary);
+    border: 5px var(--primary);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px var(--primary);
+}
+
+#initial {
     width: 10%;
     padding: 15px;
     border: 5px var(--tertiary);
