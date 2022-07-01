@@ -83,7 +83,7 @@ startBtn.addEventListener("click", function qOne() {
 
         if(!timeLeft){
             document.querySelector("h2").innerText = "Time's Up!"
-            clearInterval(endBtn);
+            clearInterval(timer);
             reset();
         }
 
